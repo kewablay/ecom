@@ -4,3 +4,45 @@
     box-sizing: border-box; 
 }
 
+.nav-bar{
+    margin-bottom: 1rem;
+}
+
+#cart-icon{
+    height: 30px;
+    width: 35px; 
+}
+
+
+.form-inline .btn{
+    padding-left: 0px;
+}
+.form-inline a{
+    padding-left: .5rem;
+}
+
+.card{
+    box-shadow: 11px 10px 8px -5px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 11px 10px 8px -5px rgba(0,0,0,0.27);
+    -moz-box-shadow: 11px 10px 8px -5px rgba(0,0,0,0.27); 
+    margin-bottom: 1.5rem;   
+}
+
+.card:hover {
+    transform: scale(1.01);
+    overflow: hidden;
+    box-shadow: 9px 9px 13px -2px rgba(0,0,0,0.53);
+    -webkit-box-shadow: 9px 9px 13px -2px rgba(0,0,0,0.53);
+    -moz-box-shadow: 9px 9px 13px -2px rgba(0,0,0,0.53);;
+    transition: all .35s ease-in-out;
+}
+
+.thumbnail{
+    height: 300px;
+    width: 100%;
+    border-bottom: 2px black;
+}
+
+#price{
+    font-size: x-large;
+}

@@ -1,5 +1,76 @@
 {% extends "store/main.html" %}
+{% load static %}
 {% block content %}
-<h1>Store</h1>
-<p>This is the store page</p>
+<section class="store-items">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top thumbnail" src="{% static 'images/placeholder.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Product 1</h5>
+                    <a href="#" class="btn btn-outline-primary">Add to cart</a>
+                    <span id="price" style="float: right;">$200</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top thumbnail" src="{% static 'images/placeholder.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Product 2</h5>
+                    <a href="#" class="btn btn-outline-primary">Add to cart</a>
+                    <span id="price" style="float: right;">$1000</span>
+                </div>
+            </div>
+        </div>    
+
+    
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top thumbnail" src="{% static 'images/placeholder.jpg' %}" alt="Card image cap">
+                <div class="card-body container">
+                    <h5 class="card-title">Product 3</h5>
+                    <a href="#" class="btn btn-outline-primary">Add to cart</a>
+                    <span id="price" style="float: right;">$500</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top thumbnail" src="{% static 'images/placeholder.jpg' %}" alt="Card image cap">
+                <div class="card-body container">
+                    <h5 class="card-title">Product 3</h5>
+                    <a href="#" class="btn btn-outline-primary">Add to cart</a>
+                    <span id="price" style="float: right;">$500</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top thumbnail" src="{% static 'images/placeholder.jpg' %}" alt="Card image cap">
+                <div class="card-body container">
+                    <h5 class="card-title">Product 3</h5>
+                    <a href="#" class="btn btn-outline-primary">Add to cart</a>
+                    <span id="price" style="float: right;">$500</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top thumbnail" src="{% static 'images/placeholder.jpg' %}" alt="Card image cap">
+                <div class="card-body container">
+                    <h5 class="card-title">Product 3</h5>
+                    <a href="#" class="btn btn-outline-primary">Add to cart</a>
+                    <span id="price" style="float: right;">$500</span>
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    </div>
+</section>
+
+
 {% endblock content %}
