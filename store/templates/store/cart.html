@@ -1,5 +1,114 @@
 {% extends "store/main.html" %}
+{% load static %}
 {% block content %}
-<h1>Cart</h1>
+<h1 class="text-center my-3">Cart</h1
+    <!--Cart Section-->
+    <section class="mt-1">
+        <div class="container">
+            <div class="cart">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col"class="text-white">Product</th>
+                            <th scope="col"class="text-white">Price</th>
+                            <th scope="col"class="text-white">Quantity</th>
+                            <th scope="col"class="text-white">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="align-middle">
+                                <div class="main">
+                                    <div class="d-flex">
+                                        <img class="image-fluid" src="{% static 'images/xps.jpg' %}"alt="">    <!--W=145 H=98-->
+                                    </div>
+                                    <div class="des">
+                                        <p>product 1 description</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <h6>$500.00</h6>
+                            </td>
+                            <td class="align-middle">
+                                <div class="counter">
+                                    <input class="input-number" type="number"
+                                    value="1" min="0" max="10">
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <h6>$20.00</h6>
+                            </td>
+                        </tr>
+                        <!----->
+                        <tr>
+                            <td class="align-middle">
+                                <div class="main">
+                                    <div class="d-flex">
+                                        <img src="{% static 'images/television.jpg' %}"alt="">   <!--W=145 H=98-->
+                                    </div>
+                                    <div class="des">
+                                        <p>product 2</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <h6>$20.00</h6>
+                            </td>
+                            <td class="align-middle">
+                                <div class="counter">
+                                    <input class="input-number"type="number"
+                                    value="1"min="0"max="10">
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <h6>$20.00</h6>
+                            </td>
+                        </tr>
+                        <!----->
+                        <tr>
+                            <td class="align-middle">
+                                <div class="main">
+                                    <div class="d-flex">
+                                        <img src="{% static 'images/iphone 13.jpg' %}"alt="">     <!--W=145 H=98--> 
+                                    </div>
+                                    <div class="des">
+                                        <p>product 3</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <h6>$20.00</h6>
+                            </td>
+                            <td class="align-middle">
+                                <div class="counter">
+                                    <input class="input-number"type="number"
+                                    value="1"min="0"max="10">
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <h6>$20.00</h6>
+                            </td>
+                        </tr>
+                        <!----->
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </section>
+    <div class="col-lg-4 offset-lg-4">
+        <div class="checkout">
+            <ul>
+                <li class="subtotal">subtotal
+                    <span>$60.00</span>
+                </li>
+                <li class="cart-total">Total
+                <span>$60.00</span></li>
+            </ul>
+            <a href="#"class="proceed-btn">Proceed to Checkout</a>
+        </div>
+    </div>
 <p>This is the cart page</p>
 {% endblock content %}
