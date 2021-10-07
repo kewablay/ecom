@@ -168,4 +168,9 @@
     height: auto;
 }
 
+.list-group .d-flex img{
+    height: 70px;
+    width: 70px;
+}
+
 /* -----end of checkout section------- */
