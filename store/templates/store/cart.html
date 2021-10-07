@@ -1,7 +1,7 @@
 {% extends "store/main.html" %}
 {% load static %}
 {% block content %}
-<h1 class="text-center my-3">Cart</h1
+<h1 class="text-center my-3">Cart-({{ order.get_cart_items }})</h1
     <!--Cart Section-->
     <section class="mt-1">
         <div class="container">
@@ -39,7 +39,7 @@
                                     </div>
                                 </td>
                                 <td class="align-middle">
-                                    <h6>$20.00</h6>
+                                    <h6>${{ item.get_total }}</h6>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -55,13 +55,14 @@
         <div class="checkout">
             <ul>
                 <li class="subtotal">subtotal
-                    <span>$60.00</span>
+                    <span>${{ order.get_cart_total }}</span>
                 </li>
                 <li class="cart-total">Total
-                <span>$60.00</span></li>
+                <span>${{ order.get_cart_total }}</span></li>
             </ul>
             <a href="{% url 'checkout' %}"class="btn btn-primary proceed-btn">Proceed to Checkout</a>
         </div>
     </div>
 <p>This is the cart page</p>
 {% endblock content %}
+    
