@@ -17,80 +17,33 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for item in items %}
                             <tr>
                                 <td class="align-middle">
                                     <div class="main">
                                         <div class="d-flex">
-                                            <img class="image-fluid" src="{% static 'images/xps.jpg' %}"alt="">    <!--W=145 H=98-->
+                                            <img class="image-fluid" src="{{ item.product.imageURL }}"alt="">   
                                         </div>
                                         <div class="des">
-                                            <p>product 1 description</p>
+                                            <p>{{ item.product.name }}</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="align-middle">
-                                    <h6>$500.00</h6>
+                                    <h6>${{ item.product.price|floatformat:2 }}</h6>
                                 </td>
                                 <td class="align-middle">
                                     <div class="counter">
                                         <input class="input-number" type="number"
-                                        value="1" min="0" max="10">
+                                        value="{{ item.quantity }}" min="0" max="10">
                                     </div>
                                 </td>
                                 <td class="align-middle">
                                     <h6>$20.00</h6>
                                 </td>
                             </tr>
-                            <!----->
-                            <tr>
-                                <td class="align-middle">
-                                    <div class="main">
-                                        <div class="d-flex">
-                                            <img src="{% static 'images/television.jpg' %}"alt="">   <!--W=145 H=98-->
-                                        </div>
-                                        <div class="des">
-                                            <p>product 2</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <h6>$20.00</h6>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="counter">
-                                        <input class="input-number"type="number"
-                                        value="1"min="0"max="10">
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <h6>$20.00</h6>
-                                </td>
-                            </tr>
-                            <!----->
-                            <tr>
-                                <td class="align-middle">
-                                    <div class="main">
-                                        <div class="d-flex">
-                                            <img src="{% static 'images/iphone 13.jpg' %}"alt="">     <!--W=145 H=98--> 
-                                        </div>
-                                        <div class="des">
-                                            <p>product 3</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <h6>$20.00</h6>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="counter">
-                                        <input class="input-number"type="number"
-                                        value="1"min="0"max="10">
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <h6>$20.00</h6>
-                                </td>
-                            </tr>
+                            {% endfor %}
+                            
                             <!----->
                         </tbody>
                     </table>

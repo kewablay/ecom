@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <section class="store-items">
-        <div class="row gx-3">
+        <div class="row gx-0">
             {% for product in products %}
             <div class="col-lg-3 col-md-6">
                 <div class="card mx-2 my-2">
@@ -11,72 +11,13 @@
                     <div class="card-body">
                         <h6 class="card-title">{{ product.name }}</h6>
                         <a href="#" class="btn btn-outline-primary">Add to cart</a>
-                        <span class="h6" id="price" style="float: right;">${{ product.price|floatformat:2}}</span>
+                        <span class="h6" id="price" style="display: inline-block; float: right;">${{ product.price|floatformat:2}}</span>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </section>
-<!--     
-            <div class="col-lg-3 col-md-6">
-                <div class="card my-2">
-                    <img class="card-img-top thumbnail" src="{% static 'images/xps.jpg' %}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Product 2</h5>
-                        <a href="#" class="btn btn-outline-primary">Add to cart</a>
-                        <span id="price" style="float: right;">$1000</span>
-                    </div>
-                </div>
-            </div>    
-    
-        
-            <div class="col-lg-3 col-md-6">
-                <div class="card my-2">
-                    <img class="card-img-top thumbnail" src="{% static 'images/television.jpg' %}" alt="Card image cap">
-                    <div class="card-body container">
-                        <h5 class="card-title">Product 3</h5>
-                        <a href="#" class="btn btn-outline-primary">Add to cart</a>
-                        <span id="price" style="float: right;">$500</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card my-2">
-                    <img class="card-img-top thumbnail" src="{% static 'images/jordan sneaker1.jpg' %}" alt="Card image cap">
-                    <div class="card-body container">
-                        <h5 class="card-title">Product 3</h5>
-                        <a href="#" class="btn btn-outline-primary">Add to cart</a>
-                        <span id="price" style="float: right;">$500</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card my-2">
-                    <img class="card-img-top thumbnail" src="{% static 'images/rolex.png' %}" alt="Card image cap">
-                    <div class="card-body container">
-                        <h5 class="card-title">Product 3</h5>
-                        <a href="#" class="btn btn-outline-primary">Add to cart</a>
-                        <span id="price" style="float: right;">$500</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card my-2">
-                    <img class="card-img-top thumbnail" src="{% static 'images/laptop bag.jpg' %}" alt="Card image cap">
-                    <div class="card-body container">
-                        <h5 class="card-title">Product 3</h5>
-                        <a href="#" class="btn btn-outline-primary">Add to cart</a>
-                        <span id="price" style="float: right;">$500</span>
-                    </div>
-                </div>
-            </div>
-        
-        
-        
-        </div> -->
 </div>
-</section>
-
 
 {% endblock content %}
