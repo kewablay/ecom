@@ -15,7 +15,7 @@
                     <img class="card-img-top thumbnail" src="{{ product.imageURL }}" alt="Card image cap">
                     <div class="card-body">
                         <h6 class="card-title">{{ product.name }}</h6>
-                        <a href="#" class="btn btn-outline-primary">Add to cart</a>
+                        <a href="#" data-product="{{ product.id }}" data-action="add" class="btn btn-outline-primary update-cart">Add to cart</a>
                         <span class="h6" id="price" style="display: inline-block; float: right;">${{ product.price|floatformat:2}}</span>
                     </div>
                 </div>
