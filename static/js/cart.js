@@ -12,4 +12,10 @@ for (i = 0; i< updateBtns.length; i++){
         }else
             console.log("user is logged in sending data")
     })
+}   
+
+function updateUserOrder(productId, action){
+    console.log('User is logged in, sending data')
+
+    var url ='/update_item'
 }
