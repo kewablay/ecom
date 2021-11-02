@@ -10,13 +10,13 @@
     <section class="store-items">
         <div class="row gx-0">
             {% for product in products %}
-            <div class="col-lg-3 col-md-6">
+            <div class="card-col col-lg-3 col-md-6">
                 <div class="card mx-2 my-2">
                     <img class="card-img-top thumbnail" src="{{ product.imageURL }}" alt="Card image cap">
                     <div class="card-body">
                         <h6 class="card-title">{{ product.name }}</h6>
                         <a href="#" data-product="{{ product.id }}" data-action="add" class="btn btn-outline-primary update-cart">Add to cart</a>
-                        <span class="h6" id="price" style="display: inline-block; float: right;">${{ product.price|floatformat:2}}</span>
+                        <span class="h6" id="price" style="float: right;">${{ product.price|floatformat:2}}</span>
                     </div>
                 </div>
             </div>

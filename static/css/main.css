@@ -162,15 +162,36 @@
 /* -----end of cart section -----*/
 
 /* -----checkout section------- */
+#row{
+    justify-content: space-between;
+}
 
 #checkout-image{
     width: auto;
     height: auto;
 }
-
+#span{
+    margin-left: 1rem;
+    font-weight: 200;
+    color: grey;
+}
 .list-group .d-flex img{
     height: 70px;
     width: 70px;
 }
 
 /* -----end of checkout section------- */
+
+
+/* ---media queries start ----- */
+@media (max-width: 576px) { 
+    .card{
+        width: 75%;
+    }
+    .card-col{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+ }
+/* ---media queries ends ----- */
