@@ -36,13 +36,12 @@ def cart(request):
 def checkout(request):
     if request.user.is_authenticated:
         customer = request.user.customer
-        # print(customer)
-        order = Order.objects.filter(customer=customer,complete=False).first()
-        if not order:
-            order = Order.objects.create(customer=customer,complete=False)
-        print(order)
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        # order = Order.objects.filter(customer=customer,complete=False).first()
+        # if not order:
+        #     order = Order.objects.create(customer=customer,complete=False)
+        # print(order)
         items = order.orderitem_set.all()
-        print(items)
     else: 
         items = []
         order = {
@@ -57,10 +56,27 @@ def checkout(request):
     return render(request, 'store/checkout.html', context)
 
 def UpdateItem(request):
-    # data = json.loads(request.data)
-    # productId = data['productId']
-    # action = data['action']
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
 
-    # print('Action:', action)
-    # print('productId:', productId)
+    print('Action:', action)
+    print('productId:', productId)
+
+    customer = request.user.customer
+    product = Product.objects.get(id=productId)
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+
+    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+
+    if action == 'add':
+        orderItem.quantity = (orderItem.quantity + 1)
+    elif action == 'remove':
+        orderItem.quantity = (orderItem.quantity - 1)
+
+    OrderItem.save()
+
+    if orderItem.quantity <= 0:
+        orderItem.delete()
+
     return JsonResponse('Item was added', safe=False)
