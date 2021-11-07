@@ -179,6 +179,19 @@
     height: 70px;
     width: 70px;
 }
+.payment-info{
+    width: 100%;
+    background-color: white;
+    padding: 1.5rem;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.678);
+}
+
+#make-payment{
+    padding: .7rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: rgba(0, 0, 255, 0.747);
+    color: white;
+}
 
 /* -----end of checkout section------- */
 
