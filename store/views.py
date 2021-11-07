@@ -15,7 +15,7 @@ def store(request):
         print(cartItems)
     else: 
         items = []
-        order = {'get_cart_total':0, 'get_cart_items':0}
+        order = {'get_cart_total':0, 'get_cart_items':0, 'shipping': False}
         cartItems = order['get_cart_items']
 
     products = Product.objects.all()
@@ -35,7 +35,8 @@ def cart(request):
         items = []
         order = {
             'get_cart_total':0,
-            'get_cart_items':0,            
+            'get_cart_items':0,   
+            'shipping': False,
             }
 
     context = {
@@ -56,7 +57,7 @@ def checkout(request):
             'get_cart_total':0,
             'get_cart_items':0,            
             }
-    context = {"items" : items, "order": order}
+    context = {"items" : items, "order": order, 'shipping': False}
 
     return render(request, 'store/checkout.html', context)
 
@@ -64,18 +65,14 @@ def UpdateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
     action = data['action']
-
     customer = request.user.customer
     product = Product.objects.get(id=productId)
 
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
-    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
-    
-    
+    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)    
     # print('Action:', action)
     # print('productId:', productId)
-
     if action == 'add':  
         orderItem.quantity = (orderItem.quantity + 1)
         # print(orderItem.order)
