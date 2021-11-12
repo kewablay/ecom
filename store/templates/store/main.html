@@ -11,7 +11,7 @@
     
     <script type="text/javascript">
         var user= '{{ request.user }}'
-        function getCookie(name) {
+        function getToken(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
                 var cookies = document.cookie.split(';');
@@ -26,7 +26,37 @@
             }
             return cookieValue;
         }
-        var csrftoken = getCookie('csrftoken');
+        var csrftoken = getToken('csrftoken');
+
+
+
+        function getCookie(name){
+            //split cookie string to get all name: value pairs 
+            var cookieArr = document.cookie.split(";")
+
+            //loop through the array elements
+            for (var i=0; i< cookieArr.length; i++){
+                var cookiePair = cookieArr[i].split("=");
+
+                /* Remove whitespace at the beginning of the cookie name and compare it with the given string */
+                if (name == cookiePair[0].trim()) {
+                    // Decode the cookie value and return
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+
+            // Return null if not found 
+            return null;
+        }
+
+        var cart = JSON.parse(getCookie('cart'))
+        if (cart == undefined){
+            cart = {}
+            console.log('Cart was created!')
+            document.cookie = 'cart='+ JSON.stringify(cart) + ";domain=;path=/"
+        }
+        console.log('cart: ', cart)
+
     </script>
 
 

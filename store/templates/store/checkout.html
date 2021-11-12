@@ -131,7 +131,7 @@
         <!-- ------end of Billing Address -->
 
         <!-- -----payment info ----- -->
-        <div class="col-6 payment-info" style="display: none;">
+        <div class="col-12 payment-info" style="display: none;">
           <h5>Payment options</h5>
           <button id="make-payment"> Make Payment </button>
         </div>
@@ -210,7 +210,7 @@
         userFormData.lastName = form.lastName.value
         userFormData.email = form.email.value
       }
-
+      
 
       var url = '/process_order/'
       fetch(url, {
@@ -225,6 +225,8 @@
       .then((data) => {
         console.log('Success:', data);
         alert("Transaction completed");
+        cart = {}
+        document.cookie = 'cart='+ JSON.stringify(cart) + ";domain=;path=/"
         window.location.href = "{% url 'store' %}";
       })
     
