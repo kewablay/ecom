@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import CreateUserForm
 
 from .models import *
 from django.http import JsonResponse
@@ -65,11 +66,25 @@ def checkout(request):
 
 
 def loginPage(request):
-    return render(request, 'store/login.html')
+    form = CreateUserForm(request.POST)
+    # if form.is_valid():
+    #     form.save()
+    
+    context = {'form': form}
+    return render(request, 'store/login.html',context)
 
 
 def registerPage(request):
-    return render(request, 'store/register.html')
+    print(request.method)
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        print(form.is_valid())
+        if form.is_valid():
+            form.save()
+    
+    context = {'form': form}
+    return render(request, 'store/register.html',context)
 
 
 def UpdateItem(request):
