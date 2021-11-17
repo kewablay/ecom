@@ -63,6 +63,15 @@ def checkout(request):
     context = {"items" : items, "order": order, 'shipping': False,"cartItems": cartItems}
     return render(request, 'store/checkout.html', context)
 
+
+def loginPage(request):
+    return render(request, 'store/login.html')
+
+
+def registerPage(request):
+    return render(request, 'store/register.html')
+
+
 def UpdateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
