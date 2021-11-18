@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect 
 from .forms import CreateUserForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+
 
 from .models import *
 from django.http import JsonResponse
@@ -8,6 +12,39 @@ import datetime
 
 from . utils import cookieCart, guestOrder
 # Create your views here.
+
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        
+                       
+        if user is not None:
+            login(request, user)
+            active_user = request.user            
+            return redirect('store')
+    
+    context = {}
+    return render(request, 'store/login.html',context)
+
+
+def registerPage(request):
+    form = CreateUserForm()
+    
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = request.POST.get('username')
+            user = User.objects.get(username=username)
+            customer = Customer.objects.create(user=user)       
+            messages.success(request, 'Account created successfully')
+            return redirect('login')
+            
+    
+    context = {'form': form}
+    return render(request, 'store/register.html',context)
 
 
 def store(request):
@@ -63,28 +100,6 @@ def checkout(request):
         items = cookieData['items']
     context = {"items" : items, "order": order, 'shipping': False,"cartItems": cartItems}
     return render(request, 'store/checkout.html', context)
-
-
-def loginPage(request):
-    form = CreateUserForm(request.POST)
-    # if form.is_valid():
-    #     form.save()
-    
-    context = {'form': form}
-    return render(request, 'store/login.html',context)
-
-
-def registerPage(request):
-    print(request.method)
-    form = CreateUserForm()
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        print(form.is_valid())
-        if form.is_valid():
-            form.save()
-    
-    context = {'form': form}
-    return render(request, 'store/register.html',context)
 
 
 def UpdateItem(request):

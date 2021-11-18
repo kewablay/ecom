@@ -4,7 +4,7 @@ html {
     padding: 0;
     height: 100%;
     /* background: url(../images/ecommerce-bg.jpg) center/cover no-repeat; */
-    background: linear-gradient(to bottom right,rgba(255, 217, 0, 0.651), rgba(255, 255, 255, 0.562)),url(../images/ecommerce-bg.jpg) center/cover no-repeat;
+    background: linear-gradient(to bottom right,rgba(0, 0, 0, 0.829), rgba(255, 217, 0, 0.178)), url(../images/ecommerce-bg.jpg) center/cover no-repeat;
 }
 .user_card {
     height: 400px;
