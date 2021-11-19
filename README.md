@@ -9,5 +9,4 @@ Allows unauthenticated users to checkout without creating an account
 
 User authentication implemented.
 
-![5urms1](https://user-images.githubusercontent.com/87356028/142619819-3d70ad61-0a32-4c12-a763-24ac48f1aff0.gif)
-
+![5urn41](https://user-images.githubusercontent.com/87356028/142620179-08d74698-7af4-4127-a9ba-5a8af131be75.gif)
