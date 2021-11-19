@@ -3,6 +3,34 @@
     margin: 0;
     box-sizing: border-box; 
 }
+#logout{
+    display:none;
+}
+
+#user{
+    color: white !important;
+    text-decoration: none !important;
+    text-transform:capitalize; 
+    position: relative;
+    cursor: pointer;
+}
+
+#dropdown{
+    display: none;
+    position: absolute;
+    color: black !important;
+    background: whitesmoke;
+    text-decoration: none !important;
+    z-index: 1000;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 2px;
+    padding: .3rem 1.5rem;
+    margin-left: 2.5rem;
+}
+
+#logout:hover #dropdown{
+    display: block;
+}
 
 
 #cart-icon{
@@ -41,10 +69,6 @@
 }
 
 
-
-#price{
-    /* font-size: large; */
-}
 
 
 /* -------cart section---------- */
